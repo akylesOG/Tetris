@@ -4,6 +4,9 @@ from sys import exit
 from game import Game
 from score import Score
 from preview import Preview
+
+from random import choice
+
 class Main:
     def __init__(self):
 
@@ -12,9 +15,24 @@ class Main:
         self.clock = pygame.time.Clock()
         pygame.display.set_caption("Тетрис")
 
-        self.game = Game()
+        self.next_shapes = [choice(list(TETROMINOS.keys())) for shape in range(3)]   
+        print(self.next_shapes)
+
+        self.game = Game(self.get_next_shape, self.update_score)
         self.score = Score()
-        self.preview = Preview()
+        self.preview = Preview(self.next_shapes)
+
+    def update_score(self, lines, score, level):
+        self.score.lines = lines
+        self.score.score = score
+        self.score.level = level
+
+
+
+    def get_next_shape(self):
+        self.next_shape = self.next_shapes.pop(0)
+        self.next_shapes.append(choice(list(TETROMINOS.keys())))
+        return self.next_shape
 
     def run(self):
         while True:
@@ -28,7 +46,7 @@ class Main:
 
             self.game.run()
             self.score.run()
-            self.preview.run()
+            self.preview.run(self.next_shapes)
 
 
             pygame.display.update()

@@ -1,8 +1,8 @@
 import pygame
 
-COLUMNS = 10
-ROWS = 18
-CELL_SIZE = 40
+COLUMNS = 12
+ROWS = 20
+CELL_SIZE = 37
 GAME_WIDTH, GAME_HEIGHT = COLUMNS*CELL_SIZE, ROWS*CELL_SIZE
 
 SIDERBAR_WIDTH = 200
@@ -13,7 +13,7 @@ PADDING =20
 WINDOW_WITH = GAME_WIDTH + SIDERBAR_WIDTH + PADDING*3
 WINDOW_HEIGHT = GAME_HEIGHT + PADDING*2
 
-UPDATE_START_SPEED = 600
+UPDATE_START_SPEED = 400
 MOVE_WAIT_TIME = 200
 ROTATE_WAIT_TIME = 200
 BLOCK_OFFSET = pygame.Vector2(COLUMNS//2, -1)
@@ -31,8 +31,8 @@ LINE_COLOR = '#FFFFFF'
 TETROMINOS = {
     'T': {'shape':[(0,0), (-1,0), (1,0), (0,-1)], 'color': PURPLE},
     'O': {'shape':[(0,0), (0,-1), (1,0), (1,-1)], 'color': YELLOW},
-    'J': {'shape':[(0,0), (0,-1), (0,1), (-1,1)], 'color': BLUE},
-    'L': {'shape':[(0,0), (0,-1), (0,1), (1,1)], 'color': ORANGE},
+    'J': {'shape':[(0,0), (0,-1), (0,1), (-1,1)], 'color': ORANGE},
+    'L': {'shape':[(0,0), (0,-1), (0,1), (1,1)], 'color': BLUE},
     'I': {'shape':[(0,0), (0,-1), (0,-2), (0,1)], 'color': CYAN},
     'S': {'shape':[(0,0), (-1,0), (0,-1), (1,-1)], 'color': GREEN},
     'Z': {'shape':[(0,0), (1,0), (0,-1), (-1,-1)], 'color': RED}
